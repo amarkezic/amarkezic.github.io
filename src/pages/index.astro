@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Socials from "../components/Socials.astro";
+import Projects from "../components/Projects.astro";
+import Experience from "../components/Experience.astro";
+---
+
+<Layout>
+  <div class="flex flex-col gap-20">
+    <div>
+      <h5 class="text-4xl">Hi!</h5>
+      <p class="mt-4 leading-relaxed text-sm">
+        I'm Aljaz, a 28-year-old full-stack software developer with a passion for
+        crafting exceptional web experiences. When I'm not coding, you'll find me
+        immersed in the world of music production and unleashing my creativity
+        while playing the sousaphone with my band, Pantaloons. Here, I showcase my
+        diverse skill set, from building dynamic web applications to creating
+        memorable musical compositions. Explore my work and get to know the
+        multifaceted artist and developer behind the screen.
+      </p>
+      <p class="mt-4">Here are my socials:</p>
+      <Socials />
+    </div>
+    <div>
+      <Projects/>
+    </div>
+    <div>
+      <Experience />
+    </div>
+  </div>
+</Layout>

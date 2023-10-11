@@ -1,0 +1,48 @@
+---
+const projects = [
+{
+    company: "Scout GPT",
+    tags: [
+      "Angular",
+      "Typescript",
+      "AWS",
+      "Amplify",
+      "ChatGPT",
+    ],
+    description: `'Football scouting app powered by Openai's GPT-3.5'`,
+    year: "2023",
+  },
+
+]
+---
+
+<h5 class="text-4xl">Projects</h5>
+<p class="text-xs mb-4">
+  Browse my personal projects, a curated collection of my creative endeavors.
+  Explore my approach to various creative pursuits.
+</p>
+<div class="flex flex-col gap-4">
+    {
+      projects.map((x) => (
+        <div class="flex flex-col gap-1 border-b border-b-slate-50">
+        <h5 class="text-xl font-bold">{x.company}</h5>
+          <p class="text-md">{x.year}</p>
+          <div class="flex gap-2">
+            {x.tags.map((tag) => (
+              <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 whitespace-nowrap">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mb-4">
+            {x.description && (
+              <>
+                <h5 class="text-lg font-bold">Description:</h5>
+                <p class="text-xs leading-relaxed">{x.description}</p>
+              </>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>

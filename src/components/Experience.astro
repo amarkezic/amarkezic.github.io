@@ -1,0 +1,130 @@
+---
+const experience = [
+  {
+    company: "The NU",
+    role: "Full-stack developer",
+    tags: ["Native IOS", "React", "NodeJS", "Fastify", "MongoDB", "AWS"],
+    description: `
+        Worked on developing a bio-tech solution that uses the clients biological information (blood,
+        microbiome, genetics, epigenetics, ...) to optimize their lifestyle and reduce the effects of aging. Some
+        of the tasks i worked on are:
+        - Developing new backend endpoints/features
+        - Writing frontend/backend tests
+        - Developing a solution that parses PDF's of blood documents and produces a digitalized version
+        (structured JSON) of that document.
+        - Developing mulitple iterations of the frontend app (https://dashboard.thenu.com/login)
+        - Rewriting frontend app to typescript
+        - Project management
+        - Writing AWS lambda functions
+    `,
+    year: "2021-2023",
+  },
+  {
+    company: "Huvii",
+    role: "Full-stack developer",
+    tags: ["Angular", "Android", "nodeJS", "GraphQL", "webRTC", "Web sockets"],
+    description: `
+        Work on building a new entertainment platform which aimed to bring casual gaming into a bar
+        environment.The platform would use the users phone to connect to a small android console that would
+        run on the bar's TV and play games on the tv by using their phones as the controller. I worked on the
+        following tasks:
+        - Designing the techincal side of the product (client facing app, B2B app, admin app, android app, Unity
+        plugin)
+        - Developing client facing apps: Client, B2B, Admin
+        - Developing android TV app (Gaming console).
+        - Developing backend for the frontend apps. The backend was implemented using the microservice
+        architectire.
+        - Developing games backend used for real time communication between the users phone and the
+        console
+        - Developing Unity plugin to easily adapt existing/new Unity games to our platform.
+    `,
+    year: "2020-2021",
+  },
+  {
+    company: "Trilogic",
+    role: "Full-stack developer",
+    tags: ["Vue", "Django", "Postgres", "React-native (Expo)"],
+    description: `
+        Worked on the largest food delivery service in Slovenia (Ehrana) before it was bought by Glovo. I
+        worked on various project but most of the time on worked on the Ehrana app that was used by their
+        clients. I worked on the following projects:
+        - Android native wrapper for the client facing web app
+        - Adding features and improving their backend
+        - Developing an electric vehicle charge estimator for given trip (collaboration with GEN-I)
+        - Developing frontend and backend for scheduling app used by the delivery drivers.
+    `,
+    year: "2019 - 2020",
+  },
+  {
+    company: "AD Systems",
+    role: "Full-stack developer",
+    tags: [
+      "React",
+      "Android",
+      "Python",
+      "GraphQL",
+      "Kubernetes",
+      "Docker",
+      "GCP",
+      "Digital Ocean",
+    ],
+    description: `
+        Worked on building a digital signage platform by using android TV boxes (with HDMI in/out) for
+        overylaing ads on top of prexisting content. The team was small (2-3 developers) and it gve me the
+        oportunity to setup everything from scratch. I worked on all parts of the sytems which are:
+        - Frontend/Backendfor manging when on which device and how the add shows up
+        - Android TV app (kiosk) with custom update system for updating our software, building robust system
+        for hanlding power outages, network outages, backend errors
+        - Cloud infrastructure for deploying the app
+        - Project mangament, planning by using assana, trello and gitlab.
+    `,
+    year: "2018 - 2019",
+  },
+  {
+    company: "Result",
+    role: "Full-stack developer (Internship)",
+    tags: ["JS", "React", "nodeJS", "GraphQL", "Kubernetes"],
+    description: "",
+    year: "2017-2018",
+  },
+  {
+    company: "Distopik",
+    role: "Software developer (Internship)",
+    tags: ["C++"],
+    description: `Working with STM32 for creating an interface to interface with VST-plugins.
+        Reading data off of a soundcard and sending in to to a nodejs backend (nodeJs C++ addons)`,
+    year: "2016",
+  },
+];
+---
+
+<h5 class="text-4xl">Experience</h5>
+<p class="text-xs mb-4">Browse my portfolio, a collection of projects highlighting my work in web design and development. Discover my approach to crafting digital experiences.</p>
+<div class="flex flex-col gap-4">
+  {
+    experience.map((x) => (
+      <div class="flex flex-col gap-1 border-b border-b-slate-50">
+        <div>
+            <h5 class="text-xl font-bold">{x.company}</h5>
+            <p class="text-md">{x.role}</p>
+        </div>
+        <p class="text-md">{x.year}</p>
+        <div class="flex gap-2">
+          {x.tags.map((tag) => (
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 whitespace-nowrap">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div class="mb-4">
+          {x.description && (
+            <>
+              <h5 class="text-lg font-bold">Description:</h5>
+              <p class="text-xs leading-relaxed">{x.description}</p>
+            </>
+          )}
+        </div>
+      </div>
+    ))
+  }
+</div>

@@ -1,0 +1,30 @@
+---
+import Linkedin from "../assets/linkedin.svg?raw";
+import Instagram from "../assets/instagram.svg?raw";
+import Github from "../assets/github.svg?raw";
+
+const socials = [
+  {
+    image: Linkedin,
+    link: "https://www.linkedin.com/in/amarkezic",
+  },
+  {
+    image: Instagram,
+    link: "https://instagram.com/aljaz.markezic",
+  },
+  {
+    image: Github,
+    link: "https://github.com/amarkezic",
+  },
+];
+---
+
+<div class="flex gap-2">
+  {
+    socials.map((x) => (
+      <a href={x.link} class="h-6 w-6" target="_blank">
+        <Fragment set:html={x.image} />
+      </a>
+    ))
+  }
+</div>
