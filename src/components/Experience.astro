@@ -2,6 +2,7 @@
 const experience = [
   {
     company: "The NU",
+    link: "https://www.thenu.com/",
     role: "Full-stack developer",
     tags: ["Native IOS", "React", "NodeJS", "Fastify", "MongoDB", "AWS"],
     description: `
@@ -21,6 +22,7 @@ const experience = [
   },
   {
     company: "Huvii",
+    link: "https://huvii.io/",
     role: "Full-stack developer",
     tags: ["Angular", "Android", "nodeJS", "GraphQL", "webRTC", "Web sockets"],
     description: `
@@ -41,7 +43,7 @@ const experience = [
     year: "2020-2021",
   },
   {
-    company: "Trilogic",
+    company: "Ehrana (bought by Glovo)",
     role: "Full-stack developer",
     tags: ["Vue", "Django", "Postgres", "React-native (Expo)"],
     description: `
@@ -57,6 +59,7 @@ const experience = [
   },
   {
     company: "AD Systems",
+    link: "https://www.ad-systems.co/",
     role: "Full-stack developer",
     tags: [
       "React",
@@ -82,6 +85,7 @@ const experience = [
   },
   {
     company: "Result",
+    link: "https://www.result.si/",
     role: "Full-stack developer (Internship)",
     tags: ["JS", "React", "nodeJS", "GraphQL", "Kubernetes"],
     description: "",
@@ -89,6 +93,7 @@ const experience = [
   },
   {
     company: "Distopik",
+    link: "https://mixanalog.com/",
     role: "Software developer (Internship)",
     tags: ["C++"],
     description: `Working with STM32 for creating an interface to interface with VST-plugins.
@@ -108,7 +113,15 @@ const experience = [
     experience.map((x) => (
       <div class="flex flex-col gap-1 border-b border-b-slate-50">
         <div>
-          <h5 class="text-xl font-bold">{x.company}</h5>
+          <h5 class="text-xl font-bold">
+            {x.link ? (
+              <a href={x.link} class="hover:underline">
+                {x.company}
+              </a>
+            ) : (
+              <span>{x.company}</span>
+            )}
+          </h5>
           <p class="text-md">{x.role}</p>
         </div>
         <p class="text-md">{x.year}</p>
