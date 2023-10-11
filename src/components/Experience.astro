@@ -1,6 +1,26 @@
 ---
 const experience = [
   {
+    company: "VMA (Current)",
+    link: "https://www.v-m-a.net/",
+    role: "Full-stack developer",
+    tags: ["React", "Typescript", "Svelte", ".NET", "C#", "Django", "NodeJS", "Express", "MSSQL", "Postgres", "Azure"],
+    description: `
+    I worked on custom software for various clients.The focus of the company is on developing quality
+    and stable software which works for a long time after being developed with minimum maintenance.
+    Some of the projects we developed were:
+      - Custom outlet store for ASKO australia. (https://deals.asko.com.au/)
+      - Certification and learning app for drones (Civil Aviation Agency for Slovenia) (https://uas.caa.si/en/
+      login/)
+      - App for diagnosing heart problems and interfacing with portable ECG device.
+      - Custom ERP and B2B app for ASKO australia.
+      - Payments portal For ASKO australia (https://payments.asko.com.au/)
+      - Tool used internally by EKO sklad for management of mining remedial works
+      - Aircraft route vizualization tool used by skydivers
+    `,
+    year: "2018-Present",
+  },
+  {
     company: "The NU",
     link: "https://www.thenu.com/",
     role: "Full-stack developer",
@@ -125,7 +145,7 @@ const experience = [
           <p class="text-md">{x.role}</p>
         </div>
         <p class="text-md">{x.year}</p>
-        <div class="flex gap-2">
+        <div class="flex gap-2 flex-wrap">
           {x.tags.map((tag) => (
             <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 whitespace-nowrap">
               {tag}
