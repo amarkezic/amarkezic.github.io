@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Socials from "../components/Socials.astro";
 import Projects from "../components/Projects.astro";
 import Experience from "../components/Experience.astro";
+import GameDev from "../components/GameDev.astro";
 ---
 
 <Layout>
@@ -10,22 +11,134 @@ import Experience from "../components/Experience.astro";
     <div>
       <h5 class="text-4xl">Hi!</h5>
       <p class="mt-4 leading-relaxed text-sm">
-        I'm Aljaz, a 28-year-old full-stack software developer with a passion for
-        crafting exceptional web experiences. When I'm not coding, you'll find me
-        immersed in the world of music production and unleashing my creativity
-        while playing the sousaphone with my band, Pantaloons. Here, I showcase my
-        diverse skill set, from building dynamic web applications to creating
-        memorable musical compositions. Explore my work and get to know the
-        multifaceted artist and developer behind the screen.
+        I'm Aljaz, a 30-year-old full-stack software developer with a passion
+        for crafting exceptional web experiences. When I'm not coding, you'll
+        find me immersed in the world of music production and unleashing my
+        creativity while playing the sousaphone with my band, Pantaloons. Here,
+        I showcase my diverse skill set, from building dynamic web applications
+        to creating memorable musical compositions. Explore my work and get to
+        know the multifaceted artist and developer behind the screen.
       </p>
       <p class="mt-4">Here are my socials:</p>
       <Socials />
     </div>
-    <div>
-      <Projects/>
-    </div>
-    <div>
-      <Experience />
-    </div>
+    <nav
+      class="flex gap-4 border-b border-gray-300 dark:border-gray-700 pb-2 -mt-10 -mb-10"
+    >
+      <a
+        href="#gamedev"
+        class="text-sm px-3 py-1.5 rounded-t hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+        >Game Dev</a
+      >
+      <a
+        href="#experience"
+        class="text-sm px-3 py-1.5 rounded-t hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+        >Experience</a
+      >
+      <a
+        href="#projects"
+        class="text-sm px-3 py-1.5 rounded-t hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+        >Projects</a
+      >
+    </nav>
+    <details id="gamedev" class="group" open>
+      <summary
+        class="text-4xl cursor-pointer list-none flex items-center justify-between select-none"
+      >
+        <span>Game dev journey</span>
+        <svg
+          class="w-6 h-6 transition-transform duration-300 group-open:rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+        </svg>
+      </summary>
+      <div class="accordion-content">
+        <div class="mt-4">
+          <GameDev />
+        </div>
+      </div>
+    </details>
+    <details id="experience" class="group" open>
+      <summary
+        class="text-4xl cursor-pointer list-none flex items-center justify-between select-none"
+      >
+        <span>Web dev experience</span>
+        <svg
+          class="w-6 h-6 transition-transform duration-300 group-open:rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+        </svg>
+      </summary>
+      <div class="accordion-content">
+        <div class="mt-4">
+          <Experience />
+        </div>
+      </div>
+    </details>
+
+    <details id="projects" class="group" open>
+      <summary
+        class="text-4xl cursor-pointer list-none flex items-center justify-between select-none"
+      >
+        <span>Projects</span>
+        <svg
+          class="w-6 h-6 transition-transform duration-300 group-open:rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+        </svg>
+      </summary>
+      <div class="accordion-content">
+        <div class="mt-4">
+          <Projects />
+        </div>
+      </div>
+    </details>
   </div>
 </Layout>
+
+<script>
+  document.querySelectorAll("details").forEach((details) => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("click", (e) => {
+      if (e.target.closest("a")) return;
+      if (!details.open) return; // opening is handled natively
+
+      e.preventDefault();
+      content.style.gridTemplateRows = "0fr";
+      content.addEventListener(
+        "transitionend",
+        () => {
+          details.removeAttribute("open");
+          content.style.gridTemplateRows = "";
+        },
+        { once: true },
+      );
+    });
+  });
+</script>

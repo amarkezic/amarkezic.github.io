@@ -1,6 +1,5 @@
 ---
 import "../css/main.css";
-import AnimatedLogo from "../components/AnimatedLogo.astro";
 import Navigation from "../components/Navigation.astro";
 const { title = "Home" } = Astro.props;
 ---
@@ -22,13 +21,10 @@ const { title = "Home" } = Astro.props;
     />
   </head>
   <body class="max-w-xl m-auto pt-16 dark:bg-zinc-800 dark:text-white p-4">
-    <header class="flex justify-between mb-20">
-      <div class="flex gap-4">
-        <AnimatedLogo />
-        <div>
-          <h1 class="font-bold">Full stack developer / Music geek</h1>
-          <Navigation />
-        </div>
+    <header class="flex justify-between mb-10">
+      <div>
+        <h1 class="font-bold">Full stack developer / Music geek</h1>
+        <Navigation />
       </div>
       <div id="menu_items">
         <button id="dark-mode-toggle">

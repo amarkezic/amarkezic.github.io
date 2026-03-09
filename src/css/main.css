@@ -1,7 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+    scroll-behavior: smooth;
+}
 
 html body {
     font-family: 'Inconsolata', monospace;
 }
+
+/* Page load animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    animation: fadeIn 0.6s ease-out both;
+}
+
+main > * > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+main > * > *:nth-child(1) { animation-delay: 0.15s; }
+main > * > *:nth-child(2) { animation-delay: 0.3s; }
+main > * > *:nth-child(3) { animation-delay: 0.45s; }
+main > * > *:nth-child(4) { animation-delay: 0.6s; }
+main > * > *:nth-child(5) { animation-delay: 0.75s; }
+main > * > *:nth-child(6) { animation-delay: 0.9s; }
+
+/* Hide default details marker across browsers */
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Accordion slide animation */
+details .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+}
+
+details[open] .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+details .accordion-content > div {
+    overflow: hidden;
+    transition: opacity 0.3s ease-out;
+}
+

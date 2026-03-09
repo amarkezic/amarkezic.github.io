@@ -1,4 +1,11 @@
 ---
+function linkify(text: string): string {
+  return text.replace(
+    /(https?:\/\/[^\s)]+)/g,
+    '<a href="$1" class="underline hover:text-blue-400" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+}
+
 const experience = [
   {
     company: "VMA (Current)",
@@ -10,15 +17,14 @@ const experience = [
     and stable software which works for a long time after being developed with minimum maintenance.
     Some of the projects we developed were:
       - Custom outlet store for ASKO australia. (https://deals.asko.com.au/)
-      - Certification and learning app for drones (Civil Aviation Agency for Slovenia) (https://uas.caa.si/en/
-      login/)
+      - Certification and learning app for drones (Civil Aviation Agency for Slovenia) (https://uas.caa.si/en/login/)
       - App for diagnosing heart problems and interfacing with portable ECG device.
       - Custom ERP and B2B app for ASKO australia.
       - Payments portal For ASKO australia (https://payments.asko.com.au/)
       - Tool used internally by EKO sklad for management of mining remedial works
       - Aircraft route vizualization tool used by skydivers
     `,
-    year: "2018-Present",
+    year: "(Part-time 2018-2023, Full-time 2023-Present)",
   },
   {
     company: "The NU",
@@ -75,7 +81,7 @@ const experience = [
         - Developing an electric vehicle charge estimator for given trip (collaboration with GEN-I)
         - Developing frontend and backend for scheduling app used by the delivery drivers.
     `,
-    year: "2019 - 2020",
+    year: "2019-2020",
   },
   {
     company: "AD Systems",
@@ -101,7 +107,7 @@ const experience = [
         - Cloud infrastructure for deploying the app
         - Project mangament, planning by using assana, trello and gitlab.
     `,
-    year: "2018 - 2019",
+    year: "2018-2019",
   },
   {
     company: "Result",
@@ -123,7 +129,6 @@ const experience = [
 ];
 ---
 
-<h5 class="text-4xl">Experience</h5>
 <p class="text-xs mb-4">
   Browse my portfolio, a collection of projects highlighting my work in web
   design and development. Discover my approach to crafting digital experiences.
@@ -135,7 +140,7 @@ const experience = [
         <div>
           <h5 class="text-xl font-bold">
             {x.link ? (
-              <a href={x.link} class="hover:underline">
+              <a href={x.link} class="hover:underline" target="_blank" rel="noopener noreferrer">
                 {x.company}
               </a>
             ) : (
@@ -156,7 +161,7 @@ const experience = [
           {x.description && (
             <>
               <h5 class="text-lg font-bold">Description:</h5>
-              <p class="text-xs leading-relaxed">{x.description}</p>
+              <p class="text-xs leading-relaxed" set:html={linkify(x.description)} />
             </>
           )}
         </div>

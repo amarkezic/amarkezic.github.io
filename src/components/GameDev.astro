@@ -1,0 +1,82 @@
+---
+const journey = {
+  started: "February 2026",
+  motivation: "Transitioning from web development to game development",
+  currentProject: {
+    name: "Roguelike Game",
+    description: "Currently working on my own roguelike game, applying everything I've learned so far.",
+    tags: ["Unity", "C#"],
+    status: "In Progress",
+  },
+  education: [
+    {
+      name: "Complete C# Unity Game Developer 2D",
+      platform: "Udemy",
+      link: "https://www.udemy.com/course/unitycourse/",
+      certificate: "/UC-8cd3bea9-7bfe-4428-bce9-bfc0674a9cdc.jpg",
+      description: "Comprehensive Unity course where I built 4 games, covering core Unity concepts, C# scripting, physics, animation, and game design patterns.",
+      tags: ["Unity", "C#", "2D Games"],
+      games: 4,
+      year: "2026",
+    },
+  ],
+};
+---
+
+<p class="text-xs mb-4">
+  In {journey.started}, I decided to pursue my passion for game development and start transitioning from web dev to game dev.
+  Here's my journey so far.
+</p>
+
+<div class="flex flex-col gap-6">
+  <div>
+    <h5 class="text-2xl font-bold mb-2">Education</h5>
+    {journey.education.map((course) => (
+      <div class="flex flex-col gap-1 border-b border-b-slate-50 pb-4">
+        <h5 class="text-xl font-bold">
+          <a href={course.link} class="hover:underline" target="_blank" rel="noopener noreferrer">
+            {course.name}
+          </a>
+        </h5>
+        <p class="text-md">{course.platform} &middot; {course.year}</p>
+        <div class="flex gap-2 flex-wrap">
+          {course.tags.map((tag) => (
+            <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 whitespace-nowrap">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div class="mb-2">
+          <h5 class="text-lg font-bold">Description:</h5>
+          <p class="text-xs leading-relaxed">{course.description}</p>
+        </div>
+        <a href={course.certificate} target="_blank" rel="noopener noreferrer" class="text-sm underline hover:text-blue-400">
+          View completion certificate
+        </a>
+      </div>
+    ))}
+  </div>
+
+  <div>
+    <h5 class="text-2xl font-bold mb-2">Current Project</h5>
+    <div class="flex flex-col gap-1 border-b border-b-slate-50 pb-4">
+      <div class="flex items-center gap-2">
+        <h5 class="text-xl font-bold">{journey.currentProject.name}</h5>
+        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">
+          {journey.currentProject.status}
+        </span>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        {journey.currentProject.tags.map((tag) => (
+          <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 whitespace-nowrap">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <div class="mb-2">
+        <h5 class="text-lg font-bold">Description:</h5>
+        <p class="text-xs leading-relaxed">{journey.currentProject.description}</p>
+      </div>
+    </div>
+  </div>
+</div>
